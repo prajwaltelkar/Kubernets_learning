@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: configmap-demo-pod
-spec: 
+spec:
   containers:
   - name: demo
     image: alpine
-    cpmmand: ["sleep", "3600"]
-    env: 
+    command: ["sleep", "3600"]
+    env:
     - name: player_initial_lives
       valueFrom:
-        configMapkeyRef:
+        configMapKeyRef:
           name: game-demo
           key: player_initial_lives
