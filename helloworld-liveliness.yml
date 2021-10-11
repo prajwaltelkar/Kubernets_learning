@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: helloworld-deployment
 spec:
   replicas: 3
@@ -11,24 +11,24 @@ spec:
     metadata:
       labels:
         app: helloworld
-  spec:
-    containers: 
-    - name: k8s-demo
-      image: arjunachari12/k8s-demo
-      ports:
-      - name: nodejs-port
-        containerPort: 3000
-      livenessProbe:
-        httpGet:
-          path: /
-          port: nodejs-port
-        initialDelaySeconds: 15
-        timoutSeconds: 30
-      readinessProbe: 30
-        httpGet:
-          path: /
-          port: nodejs-port
-        initialDelaySeconds: 15
-        timeoutSeconds: 30
+    spec:
+      containers:
+      - name: k8s-demo
+        image: arjunachari12/k8s-demo
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: nodejs-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /
+            port: nodejs-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 30
 
 
